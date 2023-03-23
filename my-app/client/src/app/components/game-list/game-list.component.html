@@ -1,0 +1,62 @@
+<div id="background">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand title">Connect Four Game List</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active">
+                    <a class="nav-link logout" (click)="logout()" >Logout</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link">{{this.user?.first}} {{this.user?.last}}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id = "main">
+        <div id = "flexLeft">
+            <div class = "item colorBox">
+                <label id = "colorLabel" for = "head">Color</label>
+                <input type = "color" name = "head" id = "head" value = "#e66465" [(ngModel)]="selectedColor">
+            </div>
+            <div class = "item playerBox">
+                <label id = "playerLabel" for="player">Player</label>
+                <select id="playerSelect" name="player" [(ngModel)]="computerOption">
+                    <option *ngFor="let player of players" [value]="player.name" [disabled]="playerOption == player.name">{{player.name}}</option>
+                </select>
+            </div>
+            <div class = "item computerBox">
+                <label id = "computerLabel" for="computer">Computer</label>
+                <select id="computerSelect" name="computer" [(ngModel)]="playerOption">
+                        <option *ngFor="let computer of computers" [value]="computer.name" [disabled]="computerOption == computer.name">{{computer.name}}</option>
+                </select>
+            </div>
+            <div class = "item">
+                <button type="button" class="btn btn-secondary" (click)="createGame()" [style.backgroundColor]="selectedColor">Create</button>
+            </div>
+        </div>
+        <div id="flexRight">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Computer</th>
+                    <th scope="col">Time Started</th>
+                    <th scope="col">Time Finished</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id = "tablebody">
+                    <tr *ngFor="let game of gameList | async">
+                        <td>{{game.status}}</td>
+                        <td><img class="token" alt="playerIMG" src="{{game.theme.playerToken.url}}"></td>
+                        <td><img class="token" alt="computerIMG" src="{{game.theme.computerToken.url}}"></td>
+                        <td>{{game.start}}</td>
+                        <td>{{game.finish}}</td>
+                        <td><button type="button" class="btn btn-secondary" [attr.data-game-id]="game.id"  (click)="joinGame($event)" [style.backgroundColor]="game.theme.color">Join</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
