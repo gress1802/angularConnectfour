@@ -1,0 +1,242 @@
+#background{
+    background-color: #333333;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 6;
+}
+
+#box{
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 550px;
+  width: 636px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -318px;
+  margin-top: -275px;
+}
+
+#coloredBoard{
+  border-radius: 5px;
+  position: absolute;
+  width: 635px;
+  height: 550px;
+  padding-top: 100px;
+  background-color: #E66465;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+#win{
+  position: absolute;
+  width: 98.35%;
+  height: 87%;
+  left: 1%;
+  top: 7%;
+  visibility: hidden;
+  border-radius: 5px;
+}
+
+#lose{
+  position: absolute;
+  width: 98.35%;
+  height: 87%;
+  left: 1%;
+  top: 7%;
+  visibility: hidden;
+  border-radius: 5px;
+}
+
+
+.top{
+  cursor: pointer;
+  border: none !important;
+  opacity: 0;
+}
+
+.disableTop {
+  pointer-events: none !important;
+  cursor: default !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.diabled { 
+  pointer-events: none;
+  cursor: default;
+}
+
+
+.token{
+  position: relative;
+  overflow: hidden;
+  border-radius: 1000px;
+  border: 1px solid black;
+  right: 2px;
+  width: 76px;
+  height: 76px;
+}
+
+.gridItem{
+  background-color: white;
+  border-radius: 1000px;
+  width: 72.5px;
+  height: 72.5px;
+  z-index: 2;
+  border: 1px solid black;
+  position: relative;
+}
+
+#selectBox{
+  border: 1px solid black;
+  border-bottom: none;
+  border-radius: 5px;;
+  background-color: #333333;
+  width: 636px;
+  height: 95px;
+  position: absolute;
+  z-index: 5;
+  left: 1px;
+  top: 15px;
+  margin-left: -319px;
+  margin-top: -290px;
+  z-index: 5;
+  animation : pulse 10s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    border-color: #979797;
+  }
+  50% {
+    border-color: #515151;
+  }
+  100% {
+    border-color: #979797;
+  }
+
+}
+
+.gridContainer{
+  display: grid;
+  grid-template-columns: repeat(7, 90px);
+  grid-template-rows: repeat(6, 30px);
+  grid-row-gap: 60px;
+  grid-column-gap: 0px;
+  z-index: 10;
+  position: absolute;
+  top: 49.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-items: center;
+  align-items: center;
+}
+
+#centeredWithgridContainer{
+  position: absolute;
+  top: 49.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+}
+
+div.top:hover{
+  opacity: 100;
+}
+
+.title{
+    position: relative;
+    left: 10px;
+}
+
+.logout{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.navbar{
+  background: linear-gradient(90deg, #333333, #1a1a1a);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#status{
+  font-size: 25px;
+  color: white;
+  position: relative;
+  top: 350px;
+}
+
+#statusContainer{
+  position: absolute;
+  top: 49.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.returnContainer{
+  border-radius: 10px;
+  border: 1px solid #292b2c;
+  background-color: #333333;
+  position: relative;
+  right: 12vw;
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.returnButton{
+  text-decoration: none;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.returnContainer:hover{
+  background-color: #1a1a1a;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.versusContainer{
+  position: relative;
+  right: 8vw;
+}
+
+@media screen and (max-width: 1110px) {
+  .returnContainer{
+    right: 10vw;
+  }
+  .versusContainer{
+    right: 6vw;
+  }
+}
+
+.vs{
+  padding-left: 1vw;
+  padding-right: 1vw;
+  position: relative;
+}
+
+#vs{
+  color: white;
+}
+
+@media screen and (max-height: 743px) {
+  #gameboard {
+    position: relative;
+    top: 350px; 
+  }
+  #background {
+    height: 130vh;
+  } 
+}
+
+
