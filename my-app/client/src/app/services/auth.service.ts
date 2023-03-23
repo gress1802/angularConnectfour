@@ -73,7 +73,7 @@ export class AuthService implements OnInit {
   login( username : string, password : string ) : Observable<User> {
     const API = this.URL + "/login";
     let credentials = { username : username, password : password };
-    let options = { withCredentials : true };
+    let options = { };
     return this.http
       .post<User>( API, credentials, options )
       .pipe<User>( tap( u => {

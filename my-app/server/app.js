@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var cors = require('cors');
 var session = require('express-session');
 
 var indexRouter = require('./routes/index');
@@ -11,10 +10,6 @@ var authRouter = require('./routes/auth');
 
 var app = express();
 
-app.use(cors({
-  origin: 'http://localhost:4200',
-  credentials: true
-}));
 app.use(session({
   secret: 'Joes Pizza',
   resave: false,

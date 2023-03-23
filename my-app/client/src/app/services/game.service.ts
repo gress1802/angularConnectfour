@@ -31,7 +31,7 @@ export class GameService implements OnInit{
  * This method makes an HTTP GET request to the /meta endpoint in order to retrieve the metadata
 */
   getMeta() : Observable<Metadata> {
-    return this.http.get<Metadata>(this.URL + "/meta", { withCredentials : true }).pipe( tap( meta => {
+    return this.http.get<Metadata>(this.URL + "/meta", { }).pipe( tap( meta => {
       this.setMeta( meta );
     }) );
   }
@@ -83,12 +83,12 @@ export class GameService implements OnInit{
   //This function is used to make a move on the board
   //It hits the endpoint POST /api/v2/gids/:gid with the gid as a parameter and the column number as a query parameter
   makeMove( gid : string, col : number ) : Observable<Token> {
-    return this.http.post<Token>(this.URL + "/gids/" + gid + "?" + "move=" + col, { }, { withCredentials : true } );
+    return this.http.post<Token>(this.URL + "/gids/" + gid + "?" + "move=" + col, { }, { } );
   }
 
   //This function is used to get the game state
   //It hits the endpoint GET /api/v2/gids/:gid with the gid as a parameter
   getGame( gid : string ) : Observable<Game> {
-    return this.http.get<Game>(this.URL + "/gids/" + gid, { withCredentials : true } );
+    return this.http.get<Game>(this.URL + "/gids/" + gid, { } );
   }
 }

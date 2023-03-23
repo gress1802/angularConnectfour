@@ -56,7 +56,7 @@ export class ListService implements OnInit {
  * This method makes an HTTP GET request to the /meta endpoint in order to retrieve the metadata
 */
   getMeta() : Observable<Metadata> {
-    return this.http.get<Metadata>(this.URL + "/meta", { withCredentials: true }).pipe( tap( meta => {
+    return this.http.get<Metadata>(this.URL + "/meta", { }).pipe( tap( meta => {
       this.setMeta( meta );
     }) );
   }
@@ -76,7 +76,6 @@ export class ListService implements OnInit {
     };
     const curURL = this.URL + '/sids' + '?' + "color=" + encodeURIComponent(selectedColor);
     return this.http.post<Game>(curURL, reqBody, {
-      withCredentials : true
     });
   }
 
@@ -85,7 +84,6 @@ export class ListService implements OnInit {
 */
   gameList() {
     return this.http.get<Game>(this.URL + "/sids", {
-      withCredentials : true
     });
   }
 
@@ -94,7 +92,6 @@ export class ListService implements OnInit {
   */
  getGames() : Observable<Game[]> {
   return this.http.get<Game[]>(this.URL + "/sids", {
-    withCredentials : true
   });
  }
 
@@ -103,7 +100,6 @@ export class ListService implements OnInit {
  */
   getGame(gid : string) : Observable<Game> {
     return this.http.get<Game>(this.URL + "/gids/" + gid, {
-      withCredentials : true
     });
   }
 }
